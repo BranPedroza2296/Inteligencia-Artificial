@@ -1,0 +1,12 @@
+abre python en la terminal y escribe import this
+
+python3 -m venv nombre_venv = creas un entorno virtual en python
+
+source venv/bin/activate = activas comando en linux para el entorno virtual, deactivate tambien lo desactiva
+
+
+pip freeze = nos muestra los modulos instalados en el entorno virtual
+pip install (nombre del paquete) = para instalar cualquier paquete
+pip freeze > requirements.txt = guarda los modulos en un txt
+pip install -r (nombre del modulo o paquete) = esto instala las dependencias necesarias que se guardaron en el archivo
+abres ub nuevo archivo en la carpeta, lo nombreas .gitignore y dentro del archivo, pones el nombre de la carpeta con / para que lo ignore

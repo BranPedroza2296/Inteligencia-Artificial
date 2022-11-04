@@ -1,0 +1,43 @@
+en la terminal de anaconda:
+
+conda --help = te muestra la lista de comandos posibles
+
+conda update --all = Actualiza todos los paquetes del entorno virtual
+
+conda env list = Lista los entornos virtuales que tienes instalados
+
+conda create --name py32 python=3.5 pandas == crea un entorno virtual con pandas en python 3.5 y lo nombra py35
+
+conda list = me muestra los paquetes instalados en conda
+
+conda list (nombre del paquete) emeplo: conda list pandas = me muestra el paquete y su version en caso de que este instalado
+
+conda update (paquete) = el mismo caso que el ejemplo anterior, pero esta vez lo actualiza
+
+conda create --name py310 -- copy --clone py35 ==  crea un nuevo entorno virtual nombrado py310 que es la verision mas actualizada, y todos los paquetes de versiones anteriores
+los copia y clona del py35
+
+conda activate (nombre del entorno virtual) = para activar un entorno virtual
+conda deactivate = para desactivar los entornos virtuales y regresar a la base
+
+conda remove (paquete) =  se desinstala un paquete
+
+conda env remove --name py35 = borra el entorno virtual que hayas creado
+
+puedes buscar paquetes desde anaconda.org y en su mayoria indica como instalarlo
+
+conda list --revision =  te indica la fecha y seguimiento de los paquetes instalados
+
+conda install --revision (numero de revision) =  para instalar una vez mas la version que tenias con anterioridad o la actual
+
+conda env export = exporta todos los paquetes instalados
+
+conda env export --no-builds = exporta los paquetes sin los numeros sobrantes de la izquierda
+
+conda env export --from-history = exporta solo los paquetes instalados manualmente
+
+con los 3 comandos de exportacion anteriores, si al final le colocas --file (nombre del archivo mas extension, preferentemente .yml) 
+crea un archivo que puedes compartir
+
+conda env create --file .\environment.yml = tomamos el documento que creamos y se crea el entorno virtual identico 
+

@@ -1,0 +1,71 @@
+el caracter . permite buscar cualquier caracter que se encuentre aun en cadena, si le coloco en seguida un espacio, de igual manera permite buscar la cadena seguido de ese msmo espacio
+caracter .. o mas puntos, nos encuentra la cantidad de caracteres que le asignemos en los puntos, ejemplo, 3 puntos ... significa 3 caracteres
+\d == significa digit. encuentra todo aquello que son digitos
+\d\d\d == o mas de 3 \d busca la cantidad igual que el ejemplo del punto
+\n == salto de linea
+\w == significa word. busca cualquier palabra incluidos numeros. no incluye puntuaciones, 
+\t == tabulacion
+\s == significa space. busca espacios
+[0-9] == es equivalente a poner /d ya que busca los digitos del 0 al 9. pero si cambio el 0 por el 6. ahora busca el rango del 6 al 9
+[a-z] == encuentra los rangos de caracteres que esten de a a la z
+[caracter] == busca el caracter que estes interesado en buscar
+[a-fA-F0-5_\.]busca de a a ala f en minusculas, de a A a la F en mayusculas, del 0 al 5, y ademas, busca todos los guines bajos, y busca al punto como caracter, eso significa \
+.* == encuentra todo lo que sea caracter
+\d* == encuentra todo lo que sea digito y asi funciona con las regex anteriores
+* significa greedy, es todo
++ significa uno o mas
+? significa uno u otro
+\d+[a-z] ==  encuentra los caracteres que sean digitos y que tambien tengas letras
+\d*[a-z] == encuentra todo lo que tenga digitos y letras
+\d*[a-z]?s ==  encuentra todo lo que pueda tener un digito, pero que despues pueda o no tener letras y que a su vez tenga forzosamente la s
+\d{2,2} == encuentra 2 digitos como minimo y dos digitios como maximo
+\d{2,5} == encuentra 2 digitios como minimo y 5 digitos como maximo
+\d{4,} ==  encuentra minimo 4 y maximo los que sean
+\d{2,2}\-? == encuentra dos digitos separadas por un guion o no 
+\d{2,2}[\-\.]? == encuentra dos digitos separados por un punto o un guion que esten o no esten
+.*, == encuentra todo lo que este antes de una coma, uno o nada
+.+?[,\n]{1,1} ==  encuentra todo lo que este antes de la coma empaquetado de forma mas pequenia, que haya una coma o un espacio y minimo una de esas dos, uno o mas
+\D == todo lo que no sea un digito
+\W ==  todo lo que no sea una letra
+\S == todo lo que no sea un espacio
+[^0-5a-c ] == todo lo que no este del 0 al 5 y de a a la c ni tampoco el espacio
+^$ == empieza la linea y termina la linea
+^[^\d].*$ == busca las lineas en donde no existan digitos, de ahi busca todo
+
+
+logs:
+^\[LOG.*\[WARN\].*$ == Encuentra en una linea ignorando la [ la palabra log y de ahi lo que siga, luego ignonra el [, busca la palabra warn de ahi, lo que siga
+
+telefonos:
+^\+?(\d+[ \.\-pe#]?)+$ == Encuentra en una liena todo aquelloq ue empiece o no pot un +, luego todo digito ignorando el espacio, el punto, el guion, la p, la e,  y el # que esten o no. sin importar que siga 
+
+url:
+https?:\/\/[\w\-\.]+\.\w{2,5} == busca todo lo que empiece en http, busca si tiene s o no, ignora los //, ahora, ignora una letra, un punto o un - de ahi trae todo hasta un punto, despues de 2 a 5 letras
+https?:\/\/[\w\-\.]+\.\w{2,5}\/?\S* == lo mismo pero agregando el tdl, ignora el / o no, ignora un espacio y de ahi trae todo
+
+mails:
+ver imagen
+
+Localizaciones:
+^-?\d{1,3}\.\d{1,6},\s?\-?\d{1,3}\.\d{1,6},.*$
+^-?\d{1,3}\s\d{1,2}'\s\d{1,2}.\d{1,2}"[WE],\s\-?\d{1,3}\s\d{1,2}'\s\d{1,2}.\d{1,2}"[NS]$
+
+Nombres:
+[A-ZÀ-ú][a-zÀ-ú]+ [A-ZÀ-ú][a-zÀ-ú]+(( [A-ZÀ-ú][a-zÀ-ú]+){1,})?
+
+
+
+Ejercicio 1 para las peliculas:
+ ^\d{1,5}+::([\w\s:,\)\(\.\'\-\&\!\/?]+)\s\(\d\d\d\d\)::.*$ == selecciono todo 
+y sustituyo con $1, $2 == esto me cambia el formato y deja unicamente las palabras sin puntuaciones, las agrupa con el ()
+
+
+
+Ejercicio para querys:
+en visual studio:
+Find: [\?&](\w+)=([^&\n]+)
+Replace: \n - $1=$2
+
+trabajar en consola:
+cat results.csv | grep '(expresion regular)' 
+cat results.csv | grep ',3[0-9],' 
